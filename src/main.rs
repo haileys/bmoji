@@ -4,6 +4,7 @@ use std::process::{Command, Stdio};
 fn prompt() -> Result<Option<&'static emojis::Emoji>, anyhow::Error> {
     let bemenu = Command::new("bemenu")
         .args(&["--prompt", "bmoji"])
+        .args(&["--list", "15"])
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
         .spawn()?;
